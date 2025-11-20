@@ -45,26 +45,22 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private final Object[][] recipesData = {
-            {"Spaghetti Bolognesa","Pastas","Clásica pasta italiana con salsa de carne y tomate.", R.drawable.tastel,"30 min"},
-            {"Fettuccine Alfredo","Pastas","Crema, manteca y parmesano para una salsa sedosa.", R.drawable.tastel,"25 min"},
-            {"Lasagna de Verduras","Pastas","Capas de vegetales asados y bechamel.", R.drawable.tastel,"40 min"},
-            {"Pollo al horno","Carnes","Jugoso pollo al horno con especias.", R.drawable.tastel,"50 min"},
-            {"Asado clásico","Carnes","Costillar con chimichurri y fuego lento.", R.drawable.tastel,"2 hs"},
-            {"Albóndigas en salsa","Carnes","Albóndigas caseras con tomate y hierbas.", R.drawable.tastel,"45 min"},
-            {"Ensalada César","Ensaladas","Lechuga, pollo, crutones y aderezo César.", R.drawable.tastel,"15 min"},
-            {"Ensalada Mediterránea","Ensaladas","Tomate, pepino, aceitunas y feta.", R.drawable.tastel,"20 min"},
-            {"Sopa de Calabaza","Sopas","Cremosa y especiada, ideal para otoño.", R.drawable.tastel,"35 min"},
-            {"Minestrone","Sopas","Sopa italiana de verduras y legumbres.", R.drawable.tastel,"40 min"},
-            {"Paella Valenciana","Arroces","Arroz con mariscos, pollo y vegetales.", R.drawable.tastel,"1h 15min"},
-            {"Risotto de Hongos","Arroces","Cremoso, con parmesano y hongos salteados.", R.drawable.tastel,"50 min"},
-            {"Tarta de Manzana","Postres","Masa hojaldrada y relleno de manzana.", R.drawable.tastel,"1h"},
-            {"Brownie Chocolate","Postres","Intenso y húmedo, con nueces.", R.drawable.tastel,"45 min"},
-            {"Ceviche de Pescado","Pescados & Mariscos","Pescado marinado en cítricos.", R.drawable.tastel,"25 min"},
-            {"Salmón a la Plancha","Pescados & Mariscos","Salmón con limón y eneldo.", R.drawable.tastel,"20 min"},
-            {"Croquetas de Jamón","Tapas & Snacks","Crujientes por fuera, cremosas por dentro.", R.drawable.tastel,"35 min"},
-            {"Bruschetta Clásica","Tapas & Snacks","Tomate, ajo y albahaca sobre pan tostado.", R.drawable.tastel,"15 min"},
-            {"Pizza Sin TACC","Sin TACC","Base sin gluten con mozzarella y tomate.", R.drawable.tastel,"40 min"},
-            {"Galletas de Avena","Postres","Saludables y crujientes, con pasas.", R.drawable.tastel,"30 min"}
+            {"Spaghetti Bolognesa","Pastas","Clásica pasta italiana con salsa de carne y tomate.",
+                    "https://images.unsplash.com/photo-1601924638867-3ec62c1aa5b1","30 min"},
+            {"Fettuccine Alfredo","Pastas","Crema, manteca y parmesano para una salsa sedosa.",
+                    "https://images.unsplash.com/photo-1589302168068-964664d93dc0","25 min"},
+            {"Lasagna de Verduras","Pastas","Capas de vegetales asados y bechamel.",
+                    "https://images.unsplash.com/photo-1603133872878-684f589c24f0","40 min"},
+            {"Pollo al horno","Carnes","Jugoso pollo al horno con especias.",
+                    "https://images.unsplash.com/photo-1604908816370-9c2b6f3f2d2f","50 min"},
+            {"Asado clásico","Carnes","Costillar con chimichurri y fuego lento.",
+                    "https://images.unsplash.com/photo-1613145997970-db84a7975fbb","2 hs"},
+            {"Ensalada César","Ensaladas","Lechuga, pollo, crutones y aderezo César.",
+                    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1","15 min"},
+            {"Tarta de Manzana","Postres","Masa hojaldrada y relleno de manzana.",
+                    "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2","1h"},
+            {"Paella Valenciana","Arroces","Arroz con mariscos, pollo y vegetales.",
+                    "https://images.unsplash.com/photo-1604908177225-1e29cf8c2c4c","1h 15min"}
     };
 
     private RecipeAdapter adapter;
@@ -148,7 +144,42 @@ public class MainActivity extends AppCompatActivity {
     private List<Recipe> getAllRecipes() {
         List<Recipe> list = new ArrayList<>();
         for (Object[] data : recipesData) {
-            list.add(new Recipe((String)data[0], (String)data[2], (int)data[3], (String)data[4]));
+            list.add(new Recipe(
+                    (String) data[0],
+                    (String) data[2],
+                    (String) data[3],
+                    (String) data[4]
+            ));
+        }
+        return list;
+    }
+
+    private List<Recipe> searchRecipes(String q) {
+        List<Recipe> list = new ArrayList<>();
+        for (Object[] data : recipesData) {
+            if(((String)data[0]).toLowerCase().contains(q)) {
+                list.add(new Recipe(
+                        (String)data[0],
+                        (String)data[2],
+                        (String)data[3],
+                        (String)data[4]
+                ));
+            }
+        }
+        return list;
+    }
+
+    private List<Recipe> filterByCategory(String cat) {
+        List<Recipe> list = new ArrayList<>();
+        for (Object[] data : recipesData) {
+            if(((String)data[1]).equals(cat)) {
+                list.add(new Recipe(
+                        (String)data[0],
+                        (String)data[2],
+                        (String)data[3],
+                        (String)data[4]
+                ));
+            }
         }
         return list;
     }
@@ -160,26 +191,6 @@ public class MainActivity extends AppCompatActivity {
         String json = sharedPrefs.getString(key, null);
         Type type = new TypeToken<List<Recipe>>(){}.getType();
         return json == null ? new ArrayList<>() : new Gson().fromJson(json, type);
-    }
-
-    private List<Recipe> searchRecipes(String q) {
-        List<Recipe> list = new ArrayList<>();
-        for (Object[] data : recipesData) {
-            if(((String)data[0]).toLowerCase().contains(q)) {
-                list.add(new Recipe((String)data[0], (String)data[2], (int)data[3], (String)data[4]));
-            }
-        }
-        return list;
-    }
-
-    private List<Recipe> filterByCategory(String cat) {
-        List<Recipe> list = new ArrayList<>();
-        for (Object[] data : recipesData) {
-            if(((String)data[1]).equals(cat)) {
-                list.add(new Recipe((String)data[0], (String)data[2], (int)data[3], (String)data[4]));
-            }
-        }
-        return list;
     }
 
     private void createCategoryButtons() {

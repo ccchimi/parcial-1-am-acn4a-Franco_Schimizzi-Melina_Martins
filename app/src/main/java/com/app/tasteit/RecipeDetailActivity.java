@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -26,8 +27,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
     SharedPreferences sharedPrefs;
     Gson gson = new Gson();
 
-    String recipeTitle, recipeDescription, recipeTime;
-    int recipeImage;
+    String recipeTitle, recipeDescription, recipeTime, recipeImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +44,20 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
         recipeTitle = getIntent().getStringExtra("title");
         recipeDescription = getIntent().getStringExtra("description");
-        recipeImage = getIntent().getIntExtra("image", R.drawable.tastel);
         recipeTime = getIntent().getStringExtra("time");
+        recipeImageUrl = getIntent().getStringExtra("imageUrl");
+
         if(recipeTime == null) recipeTime = "";
 
         detailTitle.setText(recipeTitle);
         detailDescription.setText(recipeDescription);
-        detailImage.setImageResource(recipeImage);
+
+        // CARGA DE IMAGEN REAL DESDE URL
+        Glide.with(this)
+                .load(recipeImageUrl)
+                .placeholder(R.drawable.tastel)
+                .error(R.drawable.tastel)
+                .into(detailImage);
 
         updateFavoriteButton();
 
@@ -72,10 +79,10 @@ public class RecipeDetailActivity extends AppCompatActivity {
         List<Recipe> favorites = json == null ? new ArrayList<>() : gson.fromJson(json, type);
 
         boolean exists = false;
-        for(Recipe r : favorites) {
-            if(r.getTitle().equals(recipeTitle)) {
+        for(int i = 0; i < favorites.size(); i++) {
+            if(favorites.get(i).getTitle().equals(recipeTitle)) {
+                favorites.remove(i);
                 exists = true;
-                favorites.remove(r);
                 break;
             }
         }
@@ -83,7 +90,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         if(exists) {
             Toast.makeText(this, getString(R.string.removed_favorite), Toast.LENGTH_SHORT).show();
         } else {
-            favorites.add(new Recipe(recipeTitle, recipeDescription, recipeImage, recipeTime));
+            favorites.add(new Recipe(recipeTitle, recipeDescription, recipeImageUrl, recipeTime));
             Toast.makeText(this, getString(R.string.added_favorite), Toast.LENGTH_SHORT).show();
         }
 
@@ -108,6 +115,10 @@ public class RecipeDetailActivity extends AppCompatActivity {
             }
         }
 
-        btnFavorite.setText(isFavorite ? getString(R.string.recipe_remove_fav) : getString(R.string.recipe_add_fav));
+        btnFavorite.setText(
+                isFavorite
+                        ? getString(R.string.recipe_remove_fav)
+                        : getString(R.string.recipe_add_fav)
+        );
     }
 }
