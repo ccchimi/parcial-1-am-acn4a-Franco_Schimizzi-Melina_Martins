@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Spaghetti Bolognesa",
+    "category": "Pastas",
+    "description": "Clásica pasta italiana con salsa de carne y tomate.",
+    "imageUrl": "https://cdn.stoneline.de/media/c5/63/4f/1727429313/spaghetti-bolognese.jpeg?ts=1727429313",
+    "cookingTime": "30 min"
+  },
+  {
+    "title": "Fettuccine Alfredo",
+    "category": "Pastas",
+    "description": "Crema, manteca y parmesano para una salsa sedosa.",
+    "imageUrl": "https://www.thespruceeats.com/thmb/gTjo1gnOuBEVJsttgDW2JljvKY0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/shrimp-fettuccine-alfredo-recipe-5205738-hero-01-1a40571b0e3e4a17ab768b4d700c7836.jpg",
+    "cookingTime": "25 min"
+  },
+  {
+    "title": "Lasagna de Verduras",
+    "category": "Pastas",
+    "description": "Capas de vegetales asados y bechamel.",
+    "imageUrl": "https://www.bekiacocina.com/images/cocina/0000/976-h.jpg",
+    "cookingTime": "40 min"
+  },
+  {
+    "title": "Pollo al horno",
+    "category": "Carnes",
+    "description": "Jugoso pollo al horno con especias.",
+    "imageUrl": "https://i.ytimg.com/vi/DBgGtCWWD5Q/maxresdefault.jpg",
+    "cookingTime": "50 min"
+  },
+  {
+    "title": "Asado clásico",
+    "category": "Carnes",
+    "description": "Costillar con chimichurri y fuego lento.",
+    "imageUrl": "https://www.res.com.ar/media/catalog/product/cache/6c63de560a15562fe08de38c3c766637/a/s/asado_clasico_l.jpg",
+    "cookingTime": "2 hs"
+  },
+  {
+    "title": "Ensalada César",
+    "category": "Ensaladas",
+    "description": "Lechuga, pollo, crutones y aderezo César.",
+    "imageUrl": "https://www.goodnes.com/sites/g/files/jgfbjl321/files/srh_recipes/755f697272cbcdc6e5df2adb44b1b705.jpg",
+    "cookingTime": "15 min"
+  }
+]
