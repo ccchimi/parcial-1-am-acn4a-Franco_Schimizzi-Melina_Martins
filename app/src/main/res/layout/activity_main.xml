@@ -14,7 +14,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="@dimen/padding_m">
 
             <!-- TOOLBAR -->
             <androidx.appcompat.widget.Toolbar
@@ -22,34 +22,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/primary"
-                android:elevation="6dp"
-                android:padding="8dp">
+                android:elevation="@dimen/toolbar_elevation"
+                android:padding="@dimen/padding_s">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/text_title"
                     android:textColor="@android:color/white"/>
 
                 <ImageView
                     android:id="@+id/ivAccount"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
                     android:src="@drawable/cuenta"
                     android:layout_gravity="end"
-                    android:layout_marginEnd="8dp"/>
+                    android:layout_marginEnd="@dimen/margin_s"/>
             </androidx.appcompat.widget.Toolbar>
 
             <!-- HERO SECTION -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/hero_height"
                 android:orientation="vertical"
                 android:background="@color/primary"
-                android:padding="16dp"
-                android:layout_marginTop="16dp"
+                android:padding="@dimen/padding_m"
+                android:layout_marginTop="@dimen/margin_m"
                 android:gravity="center">
 
                 <TextView
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:text="Bienvenido a Tastel"
                     android:textColor="@android:color/white"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/text_header"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -65,8 +65,8 @@
                     android:layout_height="wrap_content"
                     android:text="Recetas que se adaptan a vos"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"
-                    android:layout_marginTop="8dp"/>
+                    android:textSize="@dimen/text_medium"
+                    android:layout_marginTop="@dimen/margin_s"/>
             </LinearLayout>
 
             <!-- ACCESOS RAPIDOS -->
@@ -75,20 +75,20 @@
                 android:layout_height="wrap_content"
                 android:text="Accesos rápidos"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginTop="20dp"/>
+                android:textSize="@dimen/text_medium"
+                android:layout_marginTop="@dimen/margin_l"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/margin_m"
                 android:gravity="center">
 
                 <Button
                     android:id="@+id/btnGoRecipes"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="@dimen/button_height"
                     android:layout_weight="1"
                     android:text="Recetas"
                     android:backgroundTint="@color/primary"
@@ -97,18 +97,18 @@
                 <Button
                     android:id="@+id/btnGoFav"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="@dimen/button_height"
                     android:layout_weight="1"
                     android:text="Favoritos"
                     android:backgroundTint="@color/primary"
                     android:textColor="@android:color/white"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_marginStart="@dimen/margin_s"
+                    android:layout_marginEnd="@dimen/margin_s"/>
 
                 <Button
                     android:id="@+id/btnCommunity"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="@dimen/button_height"
                     android:layout_weight="1"
                     android:text="Comunidad"
                     android:backgroundTint="@color/primary"
@@ -121,8 +121,8 @@
                 android:layout_height="wrap_content"
                 android:text="Recetas destacadas"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginTop="24dp"/>
+                android:textSize="@dimen/text_medium"
+                android:layout_marginTop="@dimen/margin_l"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,17 +131,17 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_height="@dimen/home_feature_image_height"
                     android:scaleType="centerCrop"
                     android:src="@drawable/home"
-                    android:layout_marginTop="12dp"/>
+                    android:layout_marginTop="@dimen/margin_m"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Explorá cientos de recetas premium"
-                    android:textSize="16sp"
-                    android:layout_marginTop="8dp"/>
+                    android:textSize="@dimen/text_medium"
+                    android:layout_marginTop="@dimen/margin_s"/>
             </LinearLayout>
 
         </LinearLayout>

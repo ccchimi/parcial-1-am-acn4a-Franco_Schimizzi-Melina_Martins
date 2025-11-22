@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/padding_m"
     android:background="@color/secondary"
     tools:context=".RecipeDetailActivity">
 
@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/detailImage"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/recipe_detail_image_height"
             android:scaleType="centerCrop"
             android:src="@drawable/tastel"
             android:contentDescription="Imagen de la receta" />
@@ -28,10 +28,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Título de la receta"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_header"
             android:textStyle="bold"
             android:textColor="@color/primary"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="@dimen/margin_m"/>
 
         <!-- Descripción -->
         <TextView
@@ -39,9 +39,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Descripción completa de la receta..."
-            android:textSize="16sp"
+            android:textSize="@dimen/text_medium"
             android:textColor="@color/textPrimary"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="@dimen/margin_s"/>
 
         <!-- Botones -->
         <LinearLayout
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="24dp">
+            android:layout_marginTop="@dimen/margin_l">
 
             <Button
                 android:id="@+id/btnFavorite"
@@ -58,7 +58,7 @@
                 android:text="@string/recipe_add_fav"
                 android:backgroundTint="@color/primary"
                 android:textColor="@color/white"
-                android:layout_marginEnd="16dp"/>
+                android:layout_marginEnd="@dimen/margin_m"/>
 
             <Button
                 android:id="@+id/btnBack"

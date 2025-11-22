@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="@dimen/drawer_header_height"
     android:background="@color/primary"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/padding_m">
 
     <ImageView
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="@dimen/drawer_avatar_size"
+        android:layout_height="@dimen/drawer_avatar_size"
         android:src="@drawable/tastel"
         android:contentDescription="Logo Tastel" />
 
@@ -17,8 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tastel"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_title"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="@dimen/margin_s"/>
 </LinearLayout>

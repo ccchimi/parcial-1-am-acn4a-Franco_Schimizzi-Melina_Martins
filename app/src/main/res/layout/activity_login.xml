@@ -3,17 +3,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:padding="@dimen/padding_l">
 
     <!-- Título / logo -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_title"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_header"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
-        android:paddingBottom="24dp"/>
+        android:paddingBottom="@dimen/margin_l"/>
 
     <!-- Usuario -->
     <EditText
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_username"
-        android:padding="12dp"/>
+        android:padding="@dimen/padding_m"/>
 
     <!-- Contraseña -->
     <EditText
@@ -29,27 +29,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_password"
-        android:padding="12dp"
-        android:inputType="textPassword"
-        android:layout_marginTop="8dp"/>
+        android:padding="@dimen/padding_m"
+        android:layout_marginTop="@dimen/margin_s"/>
 
-    <!-- Botón Login -->
+    <!-- Botón login -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
         android:text="@string/login_button"
-        android:textColor="@color/secondary"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="@dimen/margin_m"/>
 
-    <!-- Botón Crear Usuario -->
-    <Button
-        android:id="@+id/btnCreateUser"
-        android:layout_width="match_parent"
+    <!-- Crear usuario -->
+    <TextView
+        android:id="@+id/tvCreateUser"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_create_user"
         android:textColor="@color/secondary"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="@dimen/margin_s"
+        android:layout_gravity="center_horizontal"/>
 
     <!-- Olvidaste contraseña -->
     <TextView
@@ -58,6 +57,6 @@
         android:layout_height="wrap_content"
         android:text="@string/login_forgot_password"
         android:textColor="@color/primary"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/margin_m"
         android:layout_gravity="center_horizontal"/>
 </LinearLayout>

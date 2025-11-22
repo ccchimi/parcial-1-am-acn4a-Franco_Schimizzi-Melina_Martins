@@ -11,32 +11,32 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="@dimen/padding_m">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primary"
-            android:elevation="4dp">
+            android:elevation="@dimen/card_elevation_small">
 
             <TextView
                 android:id="@+id/tvMainTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recetas"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_title"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
-                android:padding="12dp"/>
+                android:padding="@dimen/padding_m"/>
 
             <ImageView
                 android:id="@+id/ivAccount"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
                 android:src="@drawable/cuenta"
                 android:layout_gravity="end"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="@dimen/margin_s"/>
         </androidx.appcompat.widget.Toolbar>
 
         <!-- BUSCADOR -->
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="@dimen/margin_s">
 
             <EditText
                 android:id="@+id/etSearch"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/home_search_hint"
-                android:padding="8dp"
+                android:padding="@dimen/padding_s"
                 android:background="@drawable/edit_text_background"/>
 
             <Button
@@ -62,14 +62,14 @@
                 android:text="@string/home_search_button"
                 android:textColor="@android:color/white"
                 android:backgroundTint="@color/primary"
-                android:layout_marginStart="8dp"/>
+                android:layout_marginStart="@dimen/margin_s"/>
         </LinearLayout>
 
         <!-- CATEGORÍAS -->
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_s"
             android:scrollbars="none">
 
             <LinearLayout
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="@dimen/margin_s"/>
 
     </LinearLayout>
 
